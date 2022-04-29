@@ -1,0 +1,7 @@
+const http = require("http");
+const requestListener = require("../server") //因為http拉出來, 所以要引入requestListener
+
+//建立 server
+const server = http.createServer(requestListener);
+
+server.listen(process.env.PORT || process.env.SERVERPORT);
