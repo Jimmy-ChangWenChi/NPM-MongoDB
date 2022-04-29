@@ -24,10 +24,10 @@ const posts = {
 
                 success.successHanlde(res, newPost, "新增成功");
             } else {
-                error(res, "data error")
+                error.errorHandle(res, "data error")
             }
         } catch (error) {
-            error(res, error);
+            error.errorHandle(res, error);
         }
     },
     patchPosts({req,res,body }) {
@@ -40,10 +40,10 @@ const posts = {
                 //console.log("測試")
                 success.successHanlde(res, allPosts, "更新成功");
             } else {
-                error(res, "更新失敗")
+                error.errorHandle(res, "更新失敗")
             }
         } catch (err) {
-            error(res, "資料錯誤")
+            error.errorHandle(res, "資料錯誤")
         }
     },
     deletePosts({ req, res, id }) {

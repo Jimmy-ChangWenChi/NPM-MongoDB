@@ -6,7 +6,7 @@ const http = {
         success.cors({res,req});
     },
     notFound({req,res}){
-        error(res, "找不到路由");
+        error.errorHandle(res, "找不到路由");
     }
 }
 
