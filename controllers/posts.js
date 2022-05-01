@@ -15,7 +15,7 @@ const posts = {
         try {
             const data = JSON.parse(body);
 
-            if (data.name == "" || data.tags == "" ||data.content == "") {
+            if (data.name !== "" || data.tags !== "" || data.content !== "") {
                 const allPosts = await POST.create(
                     {
                         name: data.name,
