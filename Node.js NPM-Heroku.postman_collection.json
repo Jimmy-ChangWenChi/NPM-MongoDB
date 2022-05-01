@@ -7,14 +7,26 @@
 	"item": [
 		{
 			"name": "GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "https://pacific-shore-96421.herokuapp.com/posts",
+					"raw": "https://frozen-beyond-34983.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
-						"pacific-shore-96421",
+						"frozen-beyond-34983",
 						"herokuapp",
 						"com"
 					],
@@ -32,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"JiMMY2\",\n    \"tags\":\"Jimmy2\",\n    \"content\":\"For test\",\n    \"likes\":5000\n\n}",
+					"raw": "{\n    \"name\":\"JUN2\",\n    \"content\":\"For test\",\n    \"likes\": 5000\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,10 +52,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://pacific-shore-96421.herokuapp.com/posts",
+					"raw": "https://frozen-beyond-34983.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
-						"pacific-shore-96421",
+						"frozen-beyond-34983",
 						"herokuapp",
 						"com"
 					],
@@ -69,10 +81,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://pacific-shore-96421.herokuapp.com/posts",
+					"raw": "https://frozen-beyond-34983.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
-						"pacific-shore-96421",
+						"frozen-beyond-34983",
 						"herokuapp",
 						"com"
 					],
@@ -98,16 +110,16 @@
 					}
 				},
 				"url": {
-					"raw": "https://pacific-shore-96421.herokuapp.com/posts/6267f16fae442c432c2bb726",
+					"raw": "https://frozen-beyond-34983.herokuapp.com/posts/626e2efeedd2665c5c0d1899",
 					"protocol": "https",
 					"host": [
-						"pacific-shore-96421",
+						"frozen-beyond-34983",
 						"herokuapp",
 						"com"
 					],
 					"path": [
 						"posts",
-						"6267f16fae442c432c2bb726"
+						"626e2efeedd2665c5c0d1899"
 					]
 				}
 			},
@@ -119,16 +131,16 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://pacific-shore-96421.herokuapp.com/posts/625ebbfeeae33fbfa5c88322",
+					"raw": "https://frozen-beyond-34983.herokuapp.com/posts/626e2efeedd2665c5c0d1899",
 					"protocol": "https",
 					"host": [
-						"pacific-shore-96421",
+						"frozen-beyond-34983",
 						"herokuapp",
 						"com"
 					],
 					"path": [
 						"posts",
-						"625ebbfeeae33fbfa5c88322"
+						"626e2efeedd2665c5c0d1899"
 					]
 				}
 			},
