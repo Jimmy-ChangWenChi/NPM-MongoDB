@@ -10,11 +10,12 @@ const Headers = require("../Header/Headers");
 // }
 
 const Error = {
-    errorHandle(res, message) {
+    errorHandle({res, message}) {
         res.writeHead(400, Headers);
         res.write(JSON.stringify({
             "status": "false",
-            "massage": message
+            "massage": message,
+            "data":[]
         }))
         res.end();
     }

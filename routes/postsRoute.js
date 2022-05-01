@@ -13,13 +13,14 @@ const postsRoute = async (req, res) => {
     })
 
     if (req.url == "/posts" && req.method == "GET") {
-        PostController.getPosts({res,req})
+        PostController.getPosts({req,res});
     } else if (req.url == "/posts" && req.method == "POST") {
         req.on("end", async () => {
             PostController.postPosts({req,res,body});
         })
     } else if (req.url == "/posts" && req.method == "DELETE") {
-        PostController.deletePosts(req,res,"all");
+        const id = "all";
+        PostController.deletePosts({req,res,id});
     } else if (req.url == "/posts" && req.method == "OPTIONS") {
         HttpController.cors({req,res})
     } else if (req.url.startsWith("/posts/") && req.method == "PATCH") {
@@ -28,9 +29,9 @@ const postsRoute = async (req, res) => {
         })
     } else if (req.url.startsWith("/posts/") && req.method == "DELETE") {
         const id = req.url.split("/").pop();
-        PostController.deletePosts(req,res,id)
+        PostController.deletePosts({req,res,id})
     } else {
-        HttpController.notFound(req,res);
+        HttpController.notFound({req,res});
     }
 }
 module.exports = postsRoute

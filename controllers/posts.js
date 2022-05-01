@@ -1,18 +1,22 @@
-const mongoose = require("mongoose");
-const error = require("../Handlers/errorHandle");
+const Error = require("../Handlers/errorHandle");
 const success = require("../Handlers/successHandle");
+const POST = require("../models/posts");
 
 const posts = {
-    async getPosts({ req, res }) {
+    async getPosts({req, res}) {
         const allPosts = await POST.find();
-        success.successHanlde(res, allPosts, "全部資料");
+        //console.log(typeof allPosts);
+        const message = "全部資料"
+        //success.successHandle({res, allPosts, "全部資料"});
+        success.successHandle({res, allPosts, message});
     },
-    async postPosts({ body, req, res }) {
+    
+    async postPosts({ req,res,body }) {
         try {
             const data = JSON.parse(body);
 
-            if (data !== undefined) {
-                const newPost = await POST.create(
+            if (data.name == "" || data.tags == "" ||data.content == "") {
+                const allPosts = await POST.create(
                     {
                         name: data.name,
                         tags: data.tags,
@@ -21,39 +25,48 @@ const posts = {
                         likes: data.likes
                     }
                 )
-
-                success.successHanlde(res, newPost, "新增成功");
+                const message = "新增成功"
+                success.successHandle({res, allPosts, message});
             } else {
-                error.errorHandle(res, "data error")
+                const message = "資料有缺"
+                Error.errorHandle({res, message});
             }
         } catch (error) {
-            error.errorHandle(res, error);
+            const message = error
+            Error.errorHandle({res, message});
         }
     },
-    patchPosts({req,res,body }) {
+    async patchPosts({ body,res,req }) {
         try {
             const data = JSON.parse(body);
             const id = req.url.split("/").pop();
+            // console.log('data is ' + data);
+            // console.log('id is ' + id);
             if (data !== undefined) {
                 await POST.findByIdAndUpdate(id, data);
                 const allPosts = await POST.find();
-                //console.log("測試")
-                success.successHanlde(res, allPosts, "更新成功");
+                const message = "更新成功"
+                //console.log(allPosts);
+                success.successHandle({res, allPosts, message});
             } else {
-                error.errorHandle(res, "更新失敗")
+                const message = "更新失敗"
+                Error.errorHandle({res, message})
             }
         } catch (err) {
-            error.errorHandle(res, "資料錯誤")
+            
+            Error.errorHandle({res, err})
         }
     },
-    deletePosts({ req, res, id }) {
+    async deletePosts({ req, res, id }) {
         if (id !== "all") {
             await POST.findByIdAndDelete(id)
             const allPosts = await POST.find();
-            success.successHanlde(res, allPosts, "單筆刪除成功");
+            const message = "單筆刪除成功"
+            success.successHandle({res, allPosts, message});
         } else {
             const allPosts = await POST.deleteMany({})
-            success.successHanlde(res, allPosts, "全部刪除成功");
+            const message = "全部刪除成功"
+            success.successHandle({res, allPosts, message});
         }
     },
 }

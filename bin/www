@@ -4,4 +4,8 @@ const requestListener = require("../server") //因為http拉出來, 所以要引
 //建立 server
 const server = http.createServer(requestListener);
 
+
+//server.listen(process.env.SERVERPORT);
+
+
 server.listen(process.env.PORT || process.env.SERVERPORT);

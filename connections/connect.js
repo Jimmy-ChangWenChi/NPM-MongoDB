@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
-
+const mongoose = require("mongoose");
 
 //設定資料庫資料
 const DB = process.env.MONGODB.replace('<password>', process.env.PW);
