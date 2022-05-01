@@ -4,15 +4,15 @@ const schema = new mongoose.Schema(
     {
         name:{
             type:String,
-            required:[true,"姓名未填寫"]
+            require:[true,"姓名未填寫"]
         },
         tags:{
             type:String,
-            required:[true,"tags 未填寫"]
+            require:[true,"tags 未填寫"]
         },
         content:{
             type:String,
-            required:[true,"內容未填寫"]
+            require:[true,"內容未填寫"]
         },
         createAt:{
             type:Date,
