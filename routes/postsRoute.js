@@ -34,4 +34,6 @@ const postsRoute = async (req, res) => {
         HttpController.notFound({req,res});
     }
 }
+
+const test = {}
 module.exports = postsRoute
